@@ -1,1 +1,70 @@
-hello
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div>
+        Цвет
+    <div>
+    <input type="color" id="backgroundColor" name="head"
+           value="#e66465">
+    <label for="head">Фона</label>
+</div>
+
+<div>
+    <input type="color" id="textColor" name="body"
+            value="#ffffff">
+    <label for="body">Текста</label>
+</div> 
+    </div>
+    <div>
+          Время начала
+   <p><input id="timeFrom" type="time" name="cron" value="12:00" min="00:01" max="00:00"></p>      
+   
+             Время конца
+   <p><input id="timeTo" type="time" name="cron" value="12:00" min="00:01" max="00:00"></p>      
+   
+   <input id="createBtn" value="Сделаать картинку" type="button">
+    </div>
+    
+</div>
+
+<div>
+  Нажми правой кнопкой и выбери сохранить как 
+   <div id="image"></div>
+</div>
+</body>
+<script>
+
+
+
+const createImage = () => {
+  var canvas = document.createElement("canvas");
+  const inputTime = document.getElementById("timeFrom").value
+  const inputTime_ = document.getElementById("timeTo").value
+const bgc = document.getElementById("backgroundColor").value 
+const textColor = document.getElementById("textColor").value 
+
+  console.log(Date.parse(inputTime))
+  canvas.width = 500;
+  canvas.height = 500;
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = bgc;
+  ctx.fillRect(0, 0, 300, 300);
+  ctx.font = "30px Arial black";
+  ctx.textAlign = "center";
+   ctx.fillStyle = textColor;
+  ctx.fillText("перерыв с", 150, 140); 
+  ctx.fillText(inputTime, 150, 180); 
+  ctx.fillText(inputTime_, 150, 220); 
+  var img = document.createElement("img");
+  img.src = canvas.toDataURL("image/png");
+  const imageOut = document.getElementById("image")
+  imageOut.appendChild(img);
+}
+const createBtn = document.getElementById("createBtn")
+
+createBtn.addEventListener("click", createImage, false);
+</script>
+</html>
