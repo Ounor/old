@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>julechkam</title>
-    <img src="img.JPG" style="width: 100%" alt="">
-    <audio style="display: none" id="myAudio" controls autoplay>
-        <source src="mus.mp3" type="audio/mpeg">
-    </audio>
 </head>
 <body>
-    
+    <div>
+        <div style="width: 440; height: 440; position: absolute; " id="play" onclick="playAudio()">
+            <img style="width: 220px; position: absolute; padding-left: 110px;padding-top: 50px;" src="play.png">
+        </div>
+        <div style="display: none; width: 440; height: 440; position: absolute; " id="pause" onclick="pauseAudio()">
+            <img  style="width: 220px; position: absolute; padding-left: 110px;padding-top: 50px;" src="pause.png">
+        </div>
+        <img  src="img.JPG" style="width: 440px;" alt="">
+    </div>
+    <audio id="audio">
+        <source src="mus.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        const play = document.getElementById("play")
+        const pause = document.getElementById("pause")
+        const audio = document.getElementById("audio")
+
+        console.log(play, pause, audio);
+        pauseAudio = () => {
+            pause.setAttribute("style", "display: none;")
+            play.setAttribute("style", "display: block;")
+            audio.pause()
+
+        }
+        playAudio = () => {
+          pause.setAttribute("style", "display: block;")
+          play.setAttribute("style", "display: none;")
+          audio.play();
+        }
+      </script>
 </body>
 </html>
