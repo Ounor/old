@@ -1,0 +1,14 @@
+
+	  {
+		"applinks": {
+			"apps": [],
+			"details": [{
+				"appID": "T476MZ84NQ.com.popspotou.popspotng",
+				"paths": [
+					"/post/*",
+					"/profile/*" 
+					]
+				}
+			]
+		}
+	}
